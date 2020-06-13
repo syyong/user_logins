@@ -11,11 +11,13 @@ def check_if_db_exists():
             f'{MY_DB} exists. Would you like to delete and recreate it? (y or n) '
             )
         if recreate == 'y':
-            return 'yes, recreate'
-    #         os.remove(MY_DB)
-    #         create_db()
+            os.remove(MY_DB)
+            create_db()
+            return 'Database recreated'
         elif recreate == 'n':
-            return 'Not recreating'
+            return 'Not recreating the database'
+        else:
+            return 'Invalid answer. Please answer y or n.'
     else:
         create_db()
 
